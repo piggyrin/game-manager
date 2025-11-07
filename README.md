@@ -49,8 +49,9 @@ H2 DB
 ---
 
 ## 実行
-mvn spring-boot:run
-http://localhost:8080
+- mvn spring-boot:run
+
+- http://localhost:8080
 
 ---
 
