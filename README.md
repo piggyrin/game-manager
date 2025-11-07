@@ -1,3 +1,6 @@
+# ⚠️learning project
+
+---
 # Spring Boot製ゲーム管理アプリ
 
 TODOアプリの変形である。学習用
