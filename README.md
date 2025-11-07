@@ -40,7 +40,7 @@ H2 DB
 | 画面 | 説明 | 画像 |
 |--------|----------|--------|
 | ログイン画面 | ユーザー認証 | ![login](./images/login.png) |
-| マイページ画面 | ホーム | ![login](./images/home.png) |
+| マイページ画面 | ホーム | ![home](./images/home.png) |
 | ゲーム一覧画面 | プレイ中／プレイ済の確認 | ![list](./images/list.png) |
 | ゲーム登録画面 | ゲームの追加登録 | ![add](./images/add.png) |
 | 検索結果画面 | タイトル／ジャンル検索 | ![search](./images/search.png) |
