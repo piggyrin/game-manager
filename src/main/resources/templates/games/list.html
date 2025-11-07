@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>ゲーム一覧</title>
+</head>
+<body>
+  <h2>ゲーム一覧</h2>
+
+  <form method="get" action="#" th:action="@{/games}">
+    <input type="text" name="keyword" placeholder="キーワード（タイトル or 発売元）" th:value="${keyword}">
+    <select name="genre">
+      <option value="">-- ジャンル選択 --</option>
+      <option th:each="g : ${genres}"
+              th:value="${g}"
+              th:text="${g}"
+              th:selected="${g == genre}"></option>
+    </select>
+    <button type="submit">検索</button>
+    <a href="/games/new">＋ 新規ゲーム登録</a>
+  </form>
+
+  <table border="1">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>
+          <a th:href="@{/games(keyword=${keyword}, genre=${genre}, sort='title', sortDir=${sort == 'title' and sortDir == 'asc' ? 'desc' : 'asc'})}">
+            タイトル <span th:if="${sort == 'title'}" th:text="${sortDir == 'asc' ? '↑' : '↓'}"></span>
+          </a>
+        </th>
+        <th>
+          <a th:href="@{/games(keyword=${keyword}, genre=${genre}, sort='genre', sortDir=${sort == 'genre' and sortDir == 'asc' ? 'desc' : 'asc'})}">
+            ジャンル <span th:if="${sort == 'genre'}" th:text="${sortDir == 'asc' ? '↑' : '↓'}"></span>
+          </a>
+        </th>
+        <th>
+          <a th:href="@{/games(keyword=${keyword}, genre=${genre}, sort='releaseYear', sortDir=${sort == 'releaseYear' and sortDir == 'asc' ? 'desc' : 'asc'})}">
+            発売年 <span th:if="${sort == 'releaseYear'}" th:text="${sortDir == 'asc' ? '↑' : '↓'}"></span>
+          </a>
+        </th>
+        <th>発売元</th>
+		<th>備考</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="game : ${games}">
+        <td th:text="${game.id}"></td>
+        <td th:text="${game.title}"></td>
+        <td th:text="${game.genre}"></td>
+        <td th:text="${game.releaseYear}"></td>
+        <td th:text="${game.publisher}"></td>
+		<td th:text="${game.note}"></td>
+        <td>
+          <a th:href="@{'/games/edit/' + ${game.id}}">編集</a> /
+          <a th:href="@{'/games/delete/' + ${game.id}}">削除</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

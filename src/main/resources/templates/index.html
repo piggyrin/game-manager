@@ -1,0 +1,27 @@
+<html lang="ja"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+  <meta charset="UTF-8">
+  <title>ゲーム管理システム</title>
+</head>
+<body>
+  <div id="content">
+    <h1>ゲーム管理システム</h1>
+
+    <div sec:authorize="isAuthenticated()">
+		<p>ログイン中ユーザー: <span sec:authentication="name"></span></p>
+      <ul>
+		
+        <!--
+		<li><a href="/h2-console" target="_blank">H2 データベース管理</a></li>
+		-->
+		
+        <li><a href="/games/new">ゲーム登録</a></li>
+        <li><a href="/games">ゲーム一覧</a></li>
+        <li><a href="/logout">ログアウト</a></li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

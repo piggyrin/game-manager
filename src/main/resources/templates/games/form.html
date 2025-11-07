@@ -1,0 +1,24 @@
+<html lang="ja"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+  <meta charset="UTF-8">
+  <title>ゲーム登録</title>
+</head>
+<body>
+  <h1>ゲーム登録</h1>
+
+  <form th:action="@{/games/update}" th:object="${game}" method="post">
+    <input type="hidden" th:field="*{id}" />
+
+    <label>タイトル: <input type="text" th:field="*{title}" required></label><br>
+    <label>ジャンル: <input type="text" th:field="*{genre}"></label><br>
+    <label>メーカー: <input type="text" th:field="*{publisher}"></label><br>
+    <label>発売年: <input type="number" th:field="*{releaseYear}"></label><br>
+	<label>備考: <input type="text" name="note" th:value="${game.note}"></label><br>
+    <button type="submit">登録</button>
+  </form>
+
+  <p><a th:href="@{/games}">← ゲーム一覧へ</a></p>
+</body>
+</html>
