@@ -25,19 +25,6 @@ TODOアプリの変形である。学習用
 
 ---
 
-## システム構成（概要）
-
-Spring Boot（Controller / Service / Repository）
-
-↓
-
-Thymeleaf（View）
-
-↓
-
-H2 DB
-
----
 
 ## 画面イメージ
 
